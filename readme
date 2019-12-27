@@ -54,7 +54,7 @@ Scripts for working in Windows cmd.exe
 	[count] is not optional if using [directory]
 
 
-    > fdr [duration = 1d] [depth = 2]
+    > frf [duration = 1d] [depth = 2]
 
 	Find recent files. Defaults to 1 day and a max-depth of 2.
 	Example durations: 2weeks, 20min, 3d, 1month, 4days, 30sec
@@ -64,10 +64,12 @@ Scripts for working in Windows cmd.exe
 
     > duck [some search terms]
 
-	start duckduckgo.com with the search terms.
+        start duckduckgo.com with the search terms.
 
     > google [some search terms]
 
-	start google.com with the search terms.
+        start google.com with the search terms.
+
 ---
-// vim: set sw=4:
+# vim:sw=4:ts=4:et:
+
