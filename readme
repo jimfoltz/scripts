@@ -33,6 +33,14 @@ Apps
 	needs: [Ruby, unzip, curl]
 
 
+    > w4
+
+	Fetch the weather forecast from weather.gov.  For now you'll need to
+	edit the file for your location.
+
+	needs: [Ruby]
+
+
 Navigation
 
     > fcd
@@ -43,4 +51,4 @@ Navigation
 	needs: [fzf]
 
 ---
-// vim: set sw=4
+// vim: set sw=4:
