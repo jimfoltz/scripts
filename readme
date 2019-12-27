@@ -9,9 +9,10 @@ Scripts and shortcuts mostly for working in Windows cmd.exe.
 	Interactive process viewer/killer.
 	needs: [fzf]
 
-    $ scoopfz
+    $ scoopfz [update]
 
     	Interactive scoop browser. Search, install and uninstall scoop apps.
+	`update` runs `scoop update *` and updates the scoopfz database.
 	needs: [scoop, fzf, Ruby]
 
 
