@@ -1,0 +1,9 @@
+scripts for Windows cmd.exe
+===========================
+
+Scripts and shortcuts mostly for working in Windows cmd.exe.
+
+
+    $ ps.cmd
+
+	Interactive process viewer/killer. Requires: https://github.com/junegunn/fzf
