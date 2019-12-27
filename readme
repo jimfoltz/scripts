@@ -4,6 +4,14 @@ scripts for Windows cmd.exe
 Scripts and shortcuts mostly for working in Windows cmd.exe.
 
 
-    $ ps.cmd
+    $ ps
 
-	Interactive process viewer/killer. Requires: https://github.com/junegunn/fzf
+	Interactive process viewer/killer.
+	needs: [fzf]
+
+    $ scoopfz
+
+    	Interactive scoop browser. Search, install and uninstall scoop apps.
+	needs: [scoop, fzf, Ruby]
+
+
