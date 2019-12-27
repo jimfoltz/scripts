@@ -1,18 +1,46 @@
-scripts for Windows cmd.exe
+Scripts for Windows cmd.exe
 ===========================
 
 Scripts and shortcuts mostly for working in Windows cmd.exe.
 
+Process
 
-    $ ps
+    > ps
 
 	Interactive process viewer/killer.
+
 	needs: [fzf]
 
-    $ scoopfz [update]
+Apps
 
-    	Interactive scoop browser. Search, install and uninstall scoop apps.
+    > scoopfz [update]
+
+	Interactive scoop browser. Search, install and uninstall scoop apps.
 	`update` runs `scoop update *` and updates the scoopfz database.
+
+	Not aware of changes when installing or uninstalling at this time. Exit
+	and run `scoopfz update` to refresh the database.
+
 	needs: [scoop, fzf, Ruby]
 
 
+    > get-blender-alpha
+
+	Download and unzip the latest Blender alpha.  Also create a cli
+	command `blender-alpha`.  Manually configure the file to customize
+	the location of blender and the command.
+
+	needs: [Ruby, unzip, curl]
+
+
+Navigation
+
+    > fcd
+
+	fuzzy cd. Interactive change directory starting at the current
+	directory.
+
+	needs: [fzf]
+
+---
+// vim: set sw=4
