@@ -61,5 +61,13 @@ Scripts for working in Windows cmd.exe
 
 	uses: [fd]
 
+
+    > duck [some search terms]
+
+	start duckduckgo.com with the search terms.
+
+    > google [some search terms]
+
+	start google.com with the search terms.
 ---
 // vim: set sw=4:
