@@ -9,7 +9,9 @@ if "%dur%"=="" set dur=1d
 set depth=%2
 if "%depth%"=="" set depth=2
 
-fd -t f --max-depth %depth% --changed-within %dur%
+echo cmd: fd --changed-within %dur% --max-depth %depth%
+fd --changed-within %dur% --max-depth %depth% 
+
 goto :eof
 
 :usage
