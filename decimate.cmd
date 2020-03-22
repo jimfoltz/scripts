@@ -11,6 +11,12 @@ rem   creates filename-decimated.ext
 
 setlocal
 
+if [%1]==[] goto usage
+if [%2]==[] goto usage
+
+if not exist %1 goto :nofile
+
+
 set MESHLABSERVER="C:\Program Files\VCG\MeshLab\meshlabserver.exe"
 set "FILTER=%TEMP%\decimate.mlx"
 set "FACES=%2"
@@ -44,4 +50,19 @@ echo Output: %OUT%
 
 echo Running meshlab...
 %MESHLABSERVER% -i %1 -o %OUT% -s %FILTER%
+goto :eof
 
+:usage
+echo Usage: decimate ^<filename^> ^<face-count^>
+echo   filename   - The name of the file to decimate.
+echo   face-count - The desired number of faces (Integer).
+goto :eof
+
+:nofile
+echo Error: file %1 does not exist.
+goto :usage
+
+:usage
+echo Usage:
+echo   decimate ^<filename.ext^> ^<face count^>
+echo.
