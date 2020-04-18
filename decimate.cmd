@@ -17,7 +17,8 @@ if [%2]==[] goto usage
 if not exist %1 goto :nofile
 
 
-set MESHLABSERVER="C:\Program Files\VCG\MeshLab\meshlabserver.exe"
+rem set "MESHLABSERVER=C:\Program Files\VCG\MeshLab\meshlabserver.exe"
+set "MESHLABSERVER=C:\Users\Jim\scoop\shims\meshlabserver.exe"
 set "FILTER=%TEMP%\decimate.mlx"
 set "FACES=%2"
 
