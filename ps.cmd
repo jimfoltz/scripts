@@ -3,11 +3,10 @@
 setlocal
 
 set "FZF_DEFAULT_OPTS=--reverse --color=16,border:6 --inline-info"
-set "FZF_DEFAULT_COMMAND=tasklist |findstr exe | sort /+65 /r | remove-blanks"
+set "FZF_DEFAULT_COMMAND=tasklist |findstr exe | sort /+65 /r"
 
 set "F1=%FZF_DEFAULT_COMMAND%"
 
-set "F5=taskkill /f /pid {2}"
 set "F5=taskkill /f /pid {2}"
 set "F7=taskkill /f /im {1}"
 
@@ -23,7 +22,6 @@ set "PREVIEW=wmic process where processid={2} get /format:list | findstr /v /e =
 fzf ^
   --bind="F1:reload(%F1%)" ^
   --bind="F5:execute(%F5%)" ^
-  --bind="enter:execute(%F5%)+accept" ^
   --bind="F7:execute(%F7%)" ^
   --bind="F9:%F9%" ^
   --bind="F10:execute(%F10%)" ^
