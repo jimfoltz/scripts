@@ -1,4 +1,4 @@
 @echo off
 cls
-cd %USERPROFILE%\%*
+cd /d %USERPROFILE%\%*
 title %CD%

@@ -21,12 +21,14 @@ set "PREVIEW=wmic process where processid={2} get /format:list | findstr /v /e =
 
 fzf ^
   --bind="F1:reload(%F1%)" ^
-  --bind="F5:execute(%F5%)" ^
-  --bind="F7:execute(%F7%)" ^
+  --bind="ctrl-r:reload(%F1%)" ^
+  --bind="F5:execute(%F5%)+reload(%F1%)" ^
+  --bind="F7:execute(%F7%)+reload(%F1%)" ^
+  --bind="ENTER:execute(%F7%)+abort" ^
   --bind="F9:%F9%" ^
   --bind="F10:execute(%F10%)" ^
   --header="[ F1:refresh | F5:kill (pid) | F7:kill (name) | F9:info | F10:taskmgr | ESC:exit ]" ^
   --preview="%PREVIEW%" ^
-  --preview-window="hidden" ^
+  --preview-window="right:80%:hidden" ^
   %q%
 

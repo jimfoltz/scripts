@@ -9,7 +9,7 @@ rem setlocal EnableDelayedExpansion
 :: try to cd to selected. Will suceed if directory
 :: else try to cd to path minus filename.
 
-for /f "delims=" %%i in ('fd ^| fzf') do (
+for /f "delims=" %%i in ('fd -d2 ^| fzf --header=%cd%') do (
   cd "%%i" 2>nul || cd %%~dpi 2>nul
   break
 )
