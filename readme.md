@@ -71,7 +71,7 @@ Change to %USERPROFILE% and optionally [directory]
 
 ## cd-
   
-  > cd [count = 1 [directory]]
+  > cd- [count = 1] [directory]
 
 Go up 1 or optionally [count] directories. cd to [directory] if given. [count] is not optional if using [directory]
 
@@ -90,16 +90,18 @@ requires: [fd]
 
 Open duckduckgo.com in your default browser with the search terms.
 
-    > duck [some search terms]
+    > duck some search terms
 
 requires: [Ruby]
 
 ## google
 
-    > google [some search terms]
+    > google some search terms
 
 Open google.com in your default browser with the search terms.
 
 requires: [Ruby]
+
 ---
+
 vim:sw=4:ts=4:et:
