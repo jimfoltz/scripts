@@ -42,7 +42,7 @@ h.split("\n").each {|line|
 puts "built-in: #{arg}" if builtins.include?(arg.upcase)
 
 macros = {}
-macrofile = "C:/Users/Jim/Scripts/macros.txt"
+macrofile = "C:/Users/Jim/Scripts/doskey/macros.txt"
 File.readlines(macrofile).map {|line|
   macro, dfn = line.split("=")
   macros[macro] = dfn

@@ -3,7 +3,7 @@ setlocal
 
 REM https://ponderingdeveloper.com/2013/05/06/237/
 
-set macrofile=c:\users\jim\scripts\macros.txt
+set macrofile=c:\users\jim\scripts\doskey\macros.txt
 
 IF "%*" == "" goto displayMacros
 IF /I "%1" == "SAVE" goto saveMacro
