@@ -11,7 +11,7 @@ Several of these scripts rely on external utilites. I highly recommend these too
 
 # Scripts
 
-## ps
+## ps.cmd
 
 Interactive process viewer/killer. 
 
@@ -20,7 +20,7 @@ Interactive process viewer/killer.
 requires: [fzf, fd]
 
 
-## scoopfz
+## scoopfz.cmd
 
 Interactive scoop browser. Fuzzy search, install and uninstall scoop apps.  `update` runs `scoop update *` and updates the scoopfz database.
 
@@ -31,7 +31,7 @@ requires: [scoop, fzf, Ruby]
 
 ## tg.rb
 
-termgraph - simple graphs for your terminal. [Doc](./doc/tg.md)
+termgraph - simple graphs for your terminal. [More](./doc/tg.md).
 
 Inspired by https://github.com/mkaz/termgraph
 
@@ -45,7 +45,6 @@ Download and unzip the latest Blender alpha.  Also create a cli command `blender
 requires: [Ruby, unzip, curl]
 
 
-
 ## w4.rb
 
 Weather Forcast.
@@ -55,7 +54,7 @@ Fetch the weeks weather forecast from weather.gov.  For now you'll need to edit 
 requires: [Ruby, your tax dollars]
 
 
-## fcd
+## fcd.cmd
 
 fuzzy change directory. 
 
@@ -64,19 +63,21 @@ Interactive fuzzy search and change directory starting at the current directory.
 requires: [fzf, fd]
 
 
-## cd_ [directory]
+## cd_.cmd
+
+    > cd_ [directory]
 
 Change to %USERPROFILE% and optionally [directory]
 
 
-## cd-
+## cd-.cmd
   
   > cd- [count = 1] [directory]
 
 Go up 1 or optionally [count] directories. cd to [directory] if given. [count] is not optional if using [directory]
 
 
-## frf
+## frf.cmd
 
 Find recent files. Defaults to 1 day and a max-depth of 2. Example durations: 2weeks, 20min, 3d, 1month, 4days, 30sec
 
@@ -94,7 +95,7 @@ Open duckduckgo.com in your default browser with the search terms.
 
 requires: [Ruby]
 
-## google
+## google.rb
 
     > google some search terms
 
