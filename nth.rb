@@ -1,3 +1,4 @@
+# nth.rb: print the nth line of input.
 
 if ARGV.delete("-h") || ARGV.delete("--help")
   puts "nth: print the nth line of input."
