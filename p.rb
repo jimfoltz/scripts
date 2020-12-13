@@ -39,8 +39,17 @@ h.split("\n").each {|line|
   match = line.match(/^([A-Z]+)\s/)
   builtins << match[1] if match
 }
-
 puts "built-in: #{arg}" if builtins.include?(arg.upcase)
+
+macros = {}
+macrofile = "C:/Users/Jim/Scripts/macros.txt"
+File.readlines(macrofile).map {|line|
+  macro, dfn = line.split("=")
+  macros[macro] = dfn
+}
+if macros.keys.include?(arg.downcase)
+  puts "doskey macro: #{arg} = #{macros[arg]}"
+end
 
 exts = ENV["PATHEXT"].split(";").map(&:downcase)
 paths.unshift "."
@@ -92,7 +101,7 @@ if opts.include?("-e")
   Process.detach pid
 end
 
-if opts.include?("-cat")
+if opts.include?("-c")
   found = find_exact(paths, exts, arg)
   puts found
   #puts File.read "#{found[0]}"

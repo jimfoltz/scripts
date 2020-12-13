@@ -1,0 +1,2 @@
+HKEY_CURRENT_USER\Environment
+    prompt    REG_SZ    [$e[36m$p$e[0m]$_$+$g$s

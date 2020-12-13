@@ -1,5 +1,6 @@
 # tg: termgraph. makes a graph from data on the command line
 # >echo cats,12;dogs,10;birds,14 | tg --record-separator ;
+
 require 'optparse'
 
 options = {

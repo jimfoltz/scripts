@@ -8,7 +8,7 @@ Usage:
     
     > generate-some-data | tg
 
-Gieven this input:
+Given this input:
 ```
 2006,1331
 2007,1455
@@ -60,4 +60,5 @@ Usage: tg [options]
         --sort                       Sort
     -r, --reverse                    Reverse Sort
     -w, --width=N                    Width
-    ```
+
+```
