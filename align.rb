@@ -24,6 +24,6 @@ lines.each_with_index {|line, i|
 		puts line.chomp
 		next
 	end
-	ary = line.split(c)
+	ary = line.split(c, 2) # 2 splits max
 	print "%s %s %s\n" % [ary[0].ljust(pos), c, ary[1].strip]
 }
