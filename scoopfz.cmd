@@ -1,14 +1,20 @@
 @echo off
 setlocal
 
-if "%1%"=="update" (
-rem call scoop update *
-call ruby %~dp0\scoopfz\build-app-list.rb
+if [%1%]==[u] (
+	call ruby %~dp0\scoopfz\build-app-list.rb
+)
+if [%1%]==[up] (
+	call ruby %~dp0\scoopfz\build-app-list.rb
+)
+if [%1%]==[update] (
+	call ruby %~dp0\scoopfz\build-app-list.rb
 )
 
-set "FZF_DEFAULT_COMMAND=type %~dp0\scoopfz\app-list"
+set "FZF_DEFAULT_COMMAND=type %~dp0\scoopfz\app-list-%COMPUTERNAME%"
 
 fzf --reverse -d "\|" ^
+ --ansi ^
   --no-hscroll ^
   --header "HELP: [ F1:Homepage | F2:Install | F3:Uninstall | F4:Scoop Update | ctrl-u: update app-list | ESC:quit ]" ^
   --bind "f1:execute-silent(scoop home {3})" ^
