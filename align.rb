@@ -13,17 +13,17 @@ lines = []
 pos = 0
 
 ARGF.each_with_index {|line, i|
-	lines << line
-	if line.index(c).to_i > pos
-		pos = line.index(c)
-	end
+    lines << line
+    if line.index(c).to_i > pos
+        pos = line.index(c)
+    end
 }
 
 lines.each_with_index {|line, i|
-	if line.index(c).nil?
-		puts line.chomp
-		next
-	end
-	ary = line.split(c, 2) # 2 splits max
-	print "%s %s %s\n" % [ary[0].ljust(pos), c, ary[1].strip]
+    if line.index(c).nil?
+        puts line.chomp
+        next
+    end
+    ary = line.split(c, 2) # 2 splits max
+    print "%s %s %s\n" % [ary[0].ljust(pos), c, ary[1].strip]
 }
