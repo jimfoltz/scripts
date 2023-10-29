@@ -1,1 +1,1 @@
-powershell -file c:\users\jim\bin\speak-file.ps1 %*
+powershell -file %~dpn0.ps1 %*
