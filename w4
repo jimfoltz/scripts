@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+
+require "net/http"
+require "uri"
+require 'json'
+
+def get_emoji text
+  m = {"Sunny" => "☼"}
+  m[text]
+end
+
+opt_alerts = ARGV.delete("-a")
+
+url = "https://api.weather.gov/gridpoints/CLE/94,45/forecast"
+
+begin
+  data = JSON.parse Net::HTTP.get(URI.parse(url))
+  data["properties"]["periods"].each {|per|
+    print "#{per["name"].ljust(20, ".")}"
+    print "#{per["temperature"]}"
+    print " #{per["shortForecast"]} "
+    print get_emoji(per["shortForecast"])
+    puts
+  }
+rescue
+  puts "retrying..."
+  retry
+end
+
+unless opt_alerts
+  puts "use -a for alerts."
+  exit
+end
+
+url = "https://api.weather.gov/alerts/active?area=OH"
+data = Net::HTTP.get(URI.parse(url))
+json = JSON.parse data
+puts "\n#{json['title']}\n"
+json['features'].each {|feature|
+  props = feature['properties']
+  area = props['areaDesc']
+  if area[/summit/i]
+    puts props['headline']
+    puts props['description']
+    puts props['instruction']
+  else
+    puts "No alerts for your area."
+  end
+}

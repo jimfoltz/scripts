@@ -1,0 +1,75 @@
+Scripts for working in Windows cmd.exe
+======================================
+
+    > ps
+
+	Interactive process viewer/killer.
+
+	uses: [fzf, fd]
+
+
+    > scoopfz [update]
+
+	Interactive scoop browser. Fuzzy search, install and uninstall scoop
+	apps.  `update` runs `scoop update *` and updates the scoopfz database.
+
+	scoopfz is not aware of changes made when installing or uninstalling at
+	this time. Exit and run `scoopfz update` to refresh the database.
+
+	uses: [scoop, fzf, fd,  Ruby]
+
+
+    > get-blender-alpha
+
+	Download and unzip the latest Blender alpha.  Also create a cli
+	command `blender-alpha`.  Manually configure the file to customize
+	the location of blender and the command.
+
+	uses: [Ruby, unzip, curl]
+
+
+    > w4
+
+	Fetch the weeks weather forecast from weather.gov.  For now you'll need
+	to edit the file for your location.  Check the weather.gov API for more
+	information.
+
+	uses: [Ruby, your tax dollars]
+
+
+    > fcd
+
+	fuzzy cd. Interactive fuzzy search and change directory starting at the
+	current directory.
+
+	needs: [fzf, fd]
+
+    > cd_ [directory]
+
+	Change to %USERPROFILE% and optionally [directory]
+
+    > cd- [count = 1 [directory]]
+
+	Go up 1 or optionally [count] directories. cd to [directory] if given.
+	[count] is not optional if using [directory]
+
+
+    > frf [duration = 1d] [depth = 2]
+
+	Find recent files. Defaults to 1 day and a max-depth of 2.
+	Example durations: 2weeks, 20min, 3d, 1month, 4days, 30sec
+
+	uses: [fd]
+
+
+    > duck [some search terms]
+
+        start duckduckgo.com with the search terms.
+
+    > google [some search terms]
+
+        start google.com with the search terms.
+
+---
+# vim:sw=4:ts=4:et:
+

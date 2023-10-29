@@ -1,0 +1,122 @@
+#!/usr/bin/env ruby
+require 'date'
+
+def draw_cal(mon, year, offset = 0)
+	str = ""
+
+	now = Time.now
+
+	col_width = 3
+	columns = 7
+	width = columns * col_width
+
+	#date = Time.new(year, mon, now.day)
+	date = Time.new(year, mon, 1)
+	#puts "mon:#{mon.inspect}"
+	month_name = date.strftime('%B')
+
+	str << "#{month_name} #{year}".center(width-1) << "\n"
+	str << "Su Mo Tu We Th Fr Sa\n" 
+
+	day = 1
+	date = Date.new(year, mon, day)
+	pos = date.wday
+	str << " " * (col_width * pos)
+	while date.month == mon
+		day = date.day
+		str << "\e[7m" if is_today(date)
+		str << day.to_s.rjust(2)
+		str << "\e[0m" if is_today(date)
+		if date.wday < 6
+			str << " "
+		end
+		date += 1
+		pos += 1
+		if pos % 7 == 0
+			str << "\n"
+		end
+	end
+	# pad out short lines so all lines same length
+	while date.wday < 6
+		str << "   "
+		date += 1
+	end
+	str << "  "
+	str
+end
+
+def is_today(date)
+	now = Time.now
+	date.year == now.year && date.mon == now.mon && date.day == now.day
+end
+
+def draw_year(y)
+	cal = []
+	lengths = []
+	for m in 1..12
+		cal[m] = draw_cal(m, y)
+		lengths[m] = cal[m].split("\n").length
+	end
+	blank = " " * 20
+	for m in 1.step(12, 3)
+		lines = [lengths[m], lengths[m+1], lengths[m+2]].max
+		for l in 0..(lines - 1)
+			puts "#{cal[m].split("\n")[l] || blank}   #{cal[m+1].split("\n")[l] || blank}   #{cal[m+2].split("\n")[l] || blank}"
+		end
+		puts
+	end
+end
+
+def draw_vyear(y)
+	cal = []
+	lengths = []
+	for i in 1..12
+		m = ((i + 1) % 12) + 1
+		y += 1 if m == 1
+		cal[i] = draw_cal(m, y)
+		lengths[i] = cal[i].split("\n").length
+	end
+	blank = " " * 20
+	for m in 1.step(12, 3)
+		lines = [lengths[m], lengths[m+1], lengths[m+2]].max
+		for l in 0..(lines - 1)
+			puts "#{cal[m].split("\n")[l] || blank}   #{cal[m+1].split("\n")[l] || blank}   #{cal[m+2].split("\n")[l] || blank}"
+		end
+		puts
+	end
+end
+
+def get_year
+	if year = ARGV.shift
+		year = Integer(year)
+	else
+		year = Time.now.year
+	end
+	year
+end
+
+def get_month
+	if month = ARGV.shift
+		month = Integer(month)
+	else
+		month = Time.now.month
+	end
+	unless month.between?(1, 12)
+		puts "month must be between 1 and 12."
+		exit
+	end
+	month
+end
+
+
+opt_y = ARGV.delete("-y")
+opt_v = ARGV.delete("-v")
+
+if opt_y
+	draw_year(get_year())
+elsif opt_v
+	draw_vyear(get_year())
+else
+	puts draw_cal(get_month, get_year)
+	puts
+end
