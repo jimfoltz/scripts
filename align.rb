@@ -4,54 +4,26 @@
 #   A super simple align lines on a character.
 #   Intended to be used from vim for markdown tables.
 
-c = (ARGV.shift || '=').chomp
-w = []
+CHAR = '='
+
+c = (ARGV.shift || CHAR).chomp
+
 lines = []
 
-def dim(o)
-  return
-  print "[2m"
-  p o
-  print "[0m"
-end
+pos = 0
 
 ARGF.each_with_index {|line, i|
-  dim line
-  ary = line.split(c).map(&:strip)
-  lines[i] = ary
-  ary.each_with_index {|e, j|
-    w[j] ||= 0
-    if w[j] < e.length
-      w[j] = e.length
-    end
-  }
+	lines << line
+	if line.index(c).to_i > pos
+		pos = line.index(c)
+	end
 }
-dim w
-dim lines
-
-a = []
-lines = lines.each_with_index{|line, i|
-  line = line.each_with_index.map {|l, j|
-    #line[j] = l.ljust(w[j])
-  }
-}
-dim lines
 
 lines.each_with_index {|line, i|
-  line.each_with_index {|e, j|
-    if e.empty? && j == 0
-      print "#{c} "
-      next
-    end
-    if (j != w.length-1)
-    print e
-    print "#{c} ".rjust(w[j] - e.length + 3)
-    next
-    end
-    if !e.empty?
-      print e
-    end
-  }
-  puts
+	if line.index(c).nil?
+		puts line.chomp
+		next
+	end
+	ary = line.split(c)
+	print "%s %s %s\n" % [ary[0].ljust(pos), c, ary[1].strip]
 }
-
