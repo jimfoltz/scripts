@@ -1,3 +1,5 @@
+// compile with tcc: tcc consile-size.c
+
 #include <windows.h>
 #include <stdio.h>
 
