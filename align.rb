@@ -2,16 +2,24 @@
 
 # align.rb
 #   A super simple align lines on a character.
-#   Intended to be used from vim for markdown tables.
+#   Intended to be used from vim. For example,
+#   to align 5 lines starting at the cursor you
+#   would type in vim:
+#     5!!align<Enter>
+#
+#  Can specify a different character as only parameter.
+#     5!!align .<Enter>
+#  Only splits on first occurance.
+#  No other options.
 
-CHAR = '='
+PATTERN = '='
 
-c = (ARGV.shift || CHAR).chomp
+c = (ARGV.shift || PATTERN).chomp
 
 lines = []
-
 pos = 0
 
+# Find max column to align on
 ARGF.each_with_index {|line, i|
     lines << line
     if line.index(c).to_i > pos
